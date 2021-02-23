@@ -1,2 +1,2 @@
 # harbour-sqlbrowser
-App for browsing sql databases (SQLite currently)
+Sailfish OS app for browsing sql databases (SQLite currently).
