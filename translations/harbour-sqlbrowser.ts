@@ -2,97 +2,94 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>CoverPage</name>
-    <message>
-        <source>My Cover</source>
-        <translation type="unfinished"></translation>
+    <name></name>
+    <message id="main-header">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-</context>
-<context>
-    <name>DataPage</name>
-    <message>
-        <source>About</source>
-        <translation type="unfinished"></translation>
+    <message id="about-issueText">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Run query</source>
-        <translation type="unfinished"></translation>
+    <message id="about-general">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-</context>
-<context>
-    <name>FirstPage</name>
-    <message>
-        <source>Select db</source>
-        <translation type="unfinished"></translation>
+    <message id="about-header-page">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>SQL Browser</source>
-        <translation type="unfinished"></translation>
+    <message id="about-header-info">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>DB file</source>
-        <translation type="unfinished"></translation>
+    <message id="about-version">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>No db selected</source>
-        <translation type="unfinished"></translation>
+    <message id="about-header-author">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Connect</source>
-        <translation type="unfinished"></translation>
+    <message id="about-header-licence">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Connector</source>
-        <translation type="unfinished"></translation>
+    <message id="about-header-sourceCode">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-</context>
-<context>
-    <name>SecondPage</name>
-    <message>
-        <source>Nested Page</source>
-        <translation type="unfinished"></translation>
+    <message id="about-header-issues">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Item</source>
-        <translation type="unfinished"></translation>
+    <message id="label-about">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-</context>
-<context>
-    <name>TableInfoPage</name>
-    <message>
-        <source>About</source>
-        <translation type="unfinished"></translation>
+    <message id="label-selectDb">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Run query</source>
-        <translation type="unfinished"></translation>
+    <message id="label-connector">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Action</source>
-        <translation type="unfinished"></translation>
+    <message id="label-dbFile">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Show data</source>
-        <translation type="unfinished"></translation>
+    <message id="label-connect">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-</context>
-<context>
-    <name>TableListPage</name>
-    <message>
-        <source>About</source>
-        <translation type="unfinished"></translation>
+    <message id="label-runQuery">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Run query</source>
-        <translation type="unfinished"></translation>
+    <message id="label-showData">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Tables</source>
-        <translation type="unfinished"></translation>
+    <message id="label-action">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message>
-        <source>Action</source>
-        <translation type="unfinished"></translation>
+    <message id="label-tables">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
+    </message>
+    <message id="label-noDbSelected">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
+    </message>
+    <message id="label-language">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
+    </message>
+    <message id="label-settings">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
     </message>
 </context>
 </TS>

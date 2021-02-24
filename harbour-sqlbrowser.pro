@@ -19,13 +19,16 @@ CONFIG += sailfishapp
 SOURCES += src/harbour-sqlbrowser.cpp \
     src/interfaces/connectioninfo.cpp \
     src/interfaces/iconnector.cpp \
-    src/plugins/sqliteplugin.cpp
+    src/plugins/sqliteplugin.cpp \
+    src/settings.cpp \
+    src/translationhandler.cpp
 
 DISTFILES += qml/harbour-sqlbrowser.qml \
     qml/cover/CoverPage.qml \
+    qml/pages/AboutPage.qml \
     qml/pages/DataPage.qml \
     qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
+    qml/pages/SettingsPage.qml \
     qml/pages/TableInfoPage.qml \
     qml/pages/TableListPage.qml \
     rpm/harbour-sqlbrowser.changes.in \
@@ -40,14 +43,18 @@ SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 # to disable building translations every time, comment out the
 # following CONFIG line
 CONFIG += sailfishapp_i18n
+CONFIG += sailfishapp_i18n_idbased
 
 # German translation is enabled as an example. If you aren't
 # planning to localize your app, remember to comment out the
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
-TRANSLATIONS += translations/harbour-sqlbrowser-de.ts
+TRANSLATIONS += translations/harbour-sqlbrowser-en.ts \
+    translations/harbour-sqlbrowser-fi.ts
 
 HEADERS += \
     src/interfaces/connectioninfo.h \
     src/interfaces/iconnector.h \
-    src/plugins/sqliteplugin.h
+    src/plugins/sqliteplugin.h \
+    src/settings.h \
+    src/translationhandler.h

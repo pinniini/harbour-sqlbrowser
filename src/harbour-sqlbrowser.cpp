@@ -5,11 +5,14 @@
 #include <QGuiApplication>
 #include <QQuickView>
 #include <QtQml>
+#include <QLocale>
 #include <sailfishapp.h>
 
 #include "interfaces/iconnector.h"
 #include "interfaces/connectioninfo.h"
 #include "plugins/sqliteplugin.h"
+#include "translationhandler.h"
+#include "settings.h"
 
 int main(int argc, char *argv[])
 {
@@ -26,6 +29,23 @@ int main(int argc, char *argv[])
     QScopedPointer<QGuiApplication> a(SailfishApp::application(argc, argv));
     QScopedPointer<QQuickView> view(SailfishApp::createView());
 
+    QTranslator translator;
+    Settings setts;
+    QString sysLocale = QLocale::system().name();
+    sysLocale.resize(2);
+    QString locale = setts.getStringSetting("Language", sysLocale);
+    if(locale != "en" && !translator.load("harbour-sqlbrowser-" + locale, SailfishApp::pathTo("translations").toLocalFile()))
+    {
+        qDebug() << "Could not load locale: " + locale;
+
+        locale = QLocale::system().name();
+        if(!translator.load("harbour-sqlbrowser-" + locale, SailfishApp::pathTo("translations").toLocalFile()))
+        {
+            qDebug() << "Could not load locale: " + locale;
+        }
+    }
+    a->installTranslator(&translator);
+
     qRegisterMetaType<Type>("Type");
     qmlRegisterUncreatableType<ConnectionInfo>("fi.pinniini.sqlBrowser", 1, 0, "Type", "Not creatable.");
 
@@ -35,7 +55,15 @@ int main(int argc, char *argv[])
     IConnector *sqlite = new SQLitePlugin();
     connectors.append(QVariant::fromValue(sqlite));
 
+    // Settings
+    Settings *settings = new Settings(nullptr);
+
+    // Translator
+    TranslationHandler *handler = new TranslationHandler(nullptr);
+
     QString appVersion = "0.1.0";
+    view->rootContext()->setContextProperty("Settings", settings);
+    view->rootContext()->setContextProperty("TranslationHandler", handler);
     view->rootContext()->setContextProperty("SQLConnectors", connectors);
     view->rootContext()->setContextProperty("appVersion", appVersion);
     view->setSource(SailfishApp::pathToMainQml());

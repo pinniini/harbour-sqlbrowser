@@ -34,18 +34,18 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("About")
+                text: qsTrId("label-about")
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
 
             MenuItem {
-                text: qsTr("Run query")
+                text: qsTrId("label-runQuery")
                 onClicked: console.log("TODO: open query page...")
             }
         }
 
         header: PageHeader {
-            title: qsTr("Tables")
+            title: qsTrId("label-tables")
         }
 
         delegate: ListItem {
@@ -66,7 +66,7 @@ Page {
 
             menu: ContextMenu {
                 MenuItem {
-                    text: qsTr("Action")
+                    text: qsTrId("label-action")
                     onClicked: console.log("ContextMenu item clicked...")
                 }
             }

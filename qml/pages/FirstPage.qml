@@ -24,6 +24,13 @@ Page {
         }
     }
 
+    Connections {
+        target: TranslationHandler
+        onTranslateUI: {
+            translateUi()
+        }
+    }
+
     ListModel {
         id: connectorModel
     }
@@ -38,12 +45,14 @@ Page {
         // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
         PullDownMenu {
             MenuItem {
-                text: qsTr("Select db")
-                onClicked: {
-                    console.log("Connection type (file):", Type.File)
-                    console.log("Connection type (details):", Type.Details)
-//                    pageStack.push(filePickerPage)
-                }
+                id: menuAbout
+                text: qsTrId("label-about")
+                onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
+            }
+            MenuItem {
+                id: menuSettings
+                text: qsTrId("label-settings")
+                onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
             }
         }
 
@@ -58,13 +67,14 @@ Page {
             width: page.width
             spacing: Theme.paddingLarge
             PageHeader {
-                title: qsTr("SQL Browser")
+                id: pageHeader
+                title: qsTrId("main-header")
             }
 
             ComboBox {
                 id: connectorCombo
                 width: parent.width - Theme.paddingMedium
-                label: qsTr("Connector")
+                label: qsTrId("label-connector")
 
                 menu: ContextMenu {
                     Repeater {
@@ -84,8 +94,8 @@ Page {
             ValueButton {
                 id: fileButton
                 width: parent.width
-                label: qsTr("DB file")
-                value: dbFile ? dbFile : qsTr("No db selected")
+                label: qsTrId("label-dbFile")
+                value: dbFile ? dbFile : qsTrId("label-noDbSelected")
                 visible: currentConnectionType === Type.File
                 enabled: currentConnectionType === Type.File
                 onClicked: pageStack.push(filePickerPage)
@@ -93,7 +103,7 @@ Page {
 
             Button {
                 id: connectButton
-                text: qsTr("Connect")
+                text: qsTrId("label-connect")
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: {
                     if (dbFile) {
@@ -103,19 +113,6 @@ Page {
 
                         if (currentConnector.connectToDb("", 0, dbFile, "", "")) {
                             pageStack.push(Qt.resolvedUrl("TableListPage.qml"), { "selectedConnector": currentConnector })
-
-//                            var tables = currentConnector.getTables()
-//                            console.log("Table count:", tables.length)
-
-//                            var count = tables.length
-//                            for (var i = 0; i < count; ++i) {
-//                                console.log("Table:", tables[i])
-//                                var fields = currentConnector.getColumnsForTable(tables[i]);
-//                                var count2 = fields.length
-//                                for (var j = 0; j < count2; ++j) {
-//                                    console.log("Field:", fields[j])
-//                                }
-//                            }
                         }
                     }
                 }
@@ -131,5 +128,13 @@ Page {
                 page.dbFile = selectedContentProperties.filePath
             }
         }
+    }
+
+    function translateUi() {
+        menuAbout.text = qsTrId("label-about")
+        menuSettings.text = qsTrId("label-settings")
+        pageHeader.title = qsTrId("main-header")
+        connectorCombo.label = qsTrId("label-connector")
+        fileButton.label = qsTrId("label-dbFile")
     }
 }

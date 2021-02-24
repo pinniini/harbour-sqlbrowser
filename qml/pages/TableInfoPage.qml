@@ -35,17 +35,17 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("About")
+                text: qsTrId("label-about")
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
 
             MenuItem {
-                text: qsTr("Run query")
+                text: qsTrId("label-runQuery")
                 onClicked: console.log("TODO: open query page...")
             }
 
             MenuItem {
-                text: qsTr("Show data")
+                text: qsTrId("label-showData")
                 onClicked: pageStack.push(Qt.resolvedUrl("DataPage.qml"), { "selectedConnector": selectedConnector, "selectedTable": selectedTable })
             }
         }
@@ -71,7 +71,7 @@ Page {
 
             menu: ContextMenu {
                 MenuItem {
-                    text: qsTr("Action")
+                    text: qsTrId("label-action")
                     onClicked: console.log("ContextMenu item clicked...")
                 }
             }
