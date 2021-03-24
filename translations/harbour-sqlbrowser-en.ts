@@ -5,7 +5,8 @@
     <name></name>
     <message id="main-header">
         <location filename="../qml/cover/CoverPage.qml" line="8"/>
-        <location filename="../qml/pages/FirstPage.qml" line="69"/>
+        <location filename="../qml/pages/FirstPage.qml" line="71"/>
+        <location filename="../qml/pages/FirstPage.qml" line="136"/>
         <source></source>
         <translation>SQL Browser</translation>
     </message>
@@ -56,41 +57,42 @@
     </message>
     <message id="label-about">
         <location filename="../qml/pages/DataPage.qml" line="44"/>
-        <location filename="../qml/pages/FirstPage.qml" line="41"/>
+        <location filename="../qml/pages/FirstPage.qml" line="49"/>
+        <location filename="../qml/pages/FirstPage.qml" line="134"/>
         <location filename="../qml/pages/TableInfoPage.qml" line="38"/>
         <location filename="../qml/pages/TableListPage.qml" line="37"/>
         <source></source>
         <translation>About</translation>
     </message>
     <message id="label-settings">
-        <location filename="../qml/pages/FirstPage.qml" line="45"/>
+        <location filename="../qml/pages/FirstPage.qml" line="54"/>
+        <location filename="../qml/pages/FirstPage.qml" line="135"/>
         <location filename="../qml/pages/SettingsPage.qml" line="39"/>
         <location filename="../qml/pages/SettingsPage.qml" line="73"/>
         <source></source>
         <translation>Settings</translation>
     </message>
-    <message id="label-selectDb">
-        <location filename="../qml/pages/FirstPage.qml" line="49"/>
-        <source></source>
-        <translation>Select database</translation>
-    </message>
     <message id="label-connector">
-        <location filename="../qml/pages/FirstPage.qml" line="75"/>
+        <location filename="../qml/pages/FirstPage.qml" line="77"/>
+        <location filename="../qml/pages/FirstPage.qml" line="137"/>
         <source></source>
         <translation>Connector</translation>
     </message>
     <message id="label-dbFile">
-        <location filename="../qml/pages/FirstPage.qml" line="95"/>
+        <location filename="../qml/pages/FirstPage.qml" line="97"/>
+        <location filename="../qml/pages/FirstPage.qml" line="138"/>
         <source></source>
         <translation>Select database</translation>
     </message>
     <message id="label-noDbSelected">
-        <location filename="../qml/pages/FirstPage.qml" line="96"/>
+        <location filename="../qml/pages/FirstPage.qml" line="98"/>
+        <location filename="../qml/pages/FirstPage.qml" line="139"/>
         <source></source>
         <translation>No database selected</translation>
     </message>
     <message id="label-connect">
-        <location filename="../qml/pages/FirstPage.qml" line="104"/>
+        <location filename="../qml/pages/FirstPage.qml" line="106"/>
+        <location filename="../qml/pages/FirstPage.qml" line="140"/>
         <source></source>
         <translation>Connect</translation>
     </message>

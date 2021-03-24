@@ -78,14 +78,14 @@ Page {
             }
 
             Label {
-                text: "https://github.com/pinniini/harbour-tekstitv"
+                text: "https://github.com/pinniini/harbour-sqlbrowser"
                 font.underline: true
                 wrapMode: Text.Wrap
                 width: parent.width - Theme.paddingMedium
                 x: Theme.paddingMedium
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: Qt.openUrlExternally("https://github.com/pinniini/harbour-tekstitv")
+                    onClicked: Qt.openUrlExternally("https://github.com/pinniini/harbour-sqlbrowser")
                 }
             }
 

@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
     Settings setts;
     QString sysLocale = QLocale::system().name();
     sysLocale.resize(2);
+    bool translationsLoaded = false;
     QString locale = setts.getStringSetting("Language", sysLocale);
     if(locale != "en" && !translator.load("harbour-sqlbrowser-" + locale, SailfishApp::pathTo("translations").toLocalFile()))
     {
@@ -43,7 +44,22 @@ int main(int argc, char *argv[])
         {
             qDebug() << "Could not load locale: " + locale;
         }
+        else
+        {
+            translationsLoaded = true;
+        }
     }
+
+    // Just for safety.
+    if (!translationsLoaded)
+    {
+        locale = "en";
+        if(!translator.load("harbour-sqlbrowser-" + locale, SailfishApp::pathTo("translations").toLocalFile()))
+        {
+            qDebug() << "Could not load locale: " + locale;
+        }
+    }
+
     a->installTranslator(&translator);
 
     qRegisterMetaType<Type>("Type");

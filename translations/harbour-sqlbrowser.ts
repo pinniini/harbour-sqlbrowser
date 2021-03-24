@@ -47,10 +47,6 @@
         <source></source>
         <translation type="unfinished">SQL Browser</translation>
     </message>
-    <message id="label-selectDb">
-        <source></source>
-        <translation type="unfinished">SQL Browser</translation>
-    </message>
     <message id="label-connector">
         <source></source>
         <translation type="unfinished">SQL Browser</translation>

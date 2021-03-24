@@ -123,7 +123,7 @@ Page {
     Component {
         id: filePickerPage
         FilePickerPage {
-            nameFilters: [ '*.sqlite' ]
+            nameFilters: [ '*.sqlite', '*.db' ]
             onSelectedContentPropertiesChanged: {
                 page.dbFile = selectedContentProperties.filePath
             }
@@ -136,5 +136,7 @@ Page {
         pageHeader.title = qsTrId("main-header")
         connectorCombo.label = qsTrId("label-connector")
         fileButton.label = qsTrId("label-dbFile")
+        fileButton.value = dbFile ? dbFile : qsTrId("label-noDbSelected")
+        connectButton.text = qsTrId("label-connect")
     }
 }
