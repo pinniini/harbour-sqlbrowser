@@ -20,6 +20,7 @@ SOURCES += src/harbour-sqlbrowser.cpp \
     src/interfaces/connectioninfo.cpp \
     src/interfaces/iconnector.cpp \
     src/models/columninfo.cpp \
+    src/models/columnmodel.cpp \
     src/models/tableinfo.cpp \
     src/models/tablemodel.cpp \
     src/plugins/sqliteplugin.cpp \
@@ -59,6 +60,7 @@ HEADERS += \
     src/interfaces/connectioninfo.h \
     src/interfaces/iconnector.h \
     src/models/columninfo.h \
+    src/models/columnmodel.h \
     src/models/tableinfo.h \
     src/models/tablemodel.h \
     src/plugins/sqliteplugin.h \

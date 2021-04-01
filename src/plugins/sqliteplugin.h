@@ -3,6 +3,8 @@
 
 #include "../interfaces/iconnector.h"
 #include "../interfaces/connectioninfo.h"
+#include "../models/tablemodel.h"
+#include "../models/columnmodel.h"
 
 #include <QObject>
 
@@ -18,6 +20,7 @@ public:
     QStringList getTables() override;
     TableModel* getTableModel() override;
     QStringList getColumnsForTable(const QString &tableName) override;
+    ColumnModel* getColumnModel(const QString &tableName) override;
     QStringList getAllDataFromTable(const QString &tableName) override;
 
     QString name() const override;

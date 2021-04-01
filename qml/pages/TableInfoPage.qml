@@ -12,26 +12,13 @@ Page {
 
     Component.onCompleted: {
         if (selectedConnector && selectedTable) {
-            var fields = selectedConnector.getColumnsForTable(selectedTable)
-            if (fields && fields.length > 0) {
-                tableInfoModel.clear()
-                var count = fields.length
-
-                for (var i = 0; i < count; ++i) {
-                    var field = fields[i]
-                    tableInfoModel.append({ "name": field })
-                }
-            }
+            columnList.model = selectedConnector.getColumnModel(selectedTable)
         }
     }
 
-    ListModel {
-        id: tableInfoModel
-    }
-
     SilicaListView {
+        id: columnList
         anchors.fill: parent
-        model: tableInfoModel
 
         PullDownMenu {
             MenuItem {
@@ -58,16 +45,21 @@ Page {
             contentHeight: Theme.itemSizeSmall
             width: parent.width
 
-            Label {
-                text: model.name
-                y: (parent.height / 2) - (height / 2)
-                x: Theme.paddingMedium
-                width: parent.width - Theme.paddingMedium - Theme.paddingMedium
+            DetailItem {
+                label: model.name
+                value: model.dataType
             }
 
-            onClicked: {
-                console.log("Field \"" + model.name + "\" clicked at index: " + index);
-            }
+//            Label {
+//                text: model.name
+//                y: (parent.height / 2) - (height / 2)
+//                x: Theme.paddingMedium
+//                width: parent.width - Theme.paddingMedium - Theme.paddingMedium
+//            }
+
+//            onClicked: {
+//                console.log("Field \"" + model.name + "\" clicked at index: " + index);
+//            }
 
             menu: ContextMenu {
                 MenuItem {

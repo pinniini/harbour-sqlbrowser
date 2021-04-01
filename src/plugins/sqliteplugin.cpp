@@ -135,6 +135,39 @@ QStringList SQLitePlugin::getColumnsForTable(const QString &tableName)
     //    return retList;
 }
 
+ColumnModel *SQLitePlugin::getColumnModel(const QString &tableName)
+{
+    QStringList retList;
+    ColumnModel *model = new ColumnModel ();
+
+    if (!m_database.isOpen())
+    {
+        return nullptr;
+    }
+
+    // Get fields.
+    QSqlRecord record = m_database.record(tableName);
+    if(record.isEmpty())
+    {
+        return nullptr;
+    }
+
+    QSqlIndex primary = m_database.primaryIndex(tableName);
+    if (!primary.isEmpty())
+    {
+        model->addColumnInfo(new ColumnInfo(primary.name(), "primary index"));
+    }
+
+    // Build return list.
+    for(int i = 0; i < record.count(); ++i)
+    {
+        QSqlField field = record.field(i);
+        model->addColumnInfo(new ColumnInfo(field.name(), QVariant::typeToName(field.type())));
+    }
+
+    return model;
+}
+
 QStringList SQLitePlugin::getAllDataFromTable(const QString &tableName)
 {
     qDebug() << "Getting data from table " << tableName << "...";
