@@ -31,6 +31,11 @@ QStringList IConnector::getTables()
     return QStringList();
 }
 
+TableModel* IConnector::getTableModel()
+{
+    return nullptr;
+}
+
 QStringList IConnector::getColumnsForTable(const QString &tableName)
 {
     Q_UNUSED(tableName)

@@ -11,26 +11,14 @@ Page {
 
     Component.onCompleted: {
         if (selectedConnector) {
-            var tables = selectedConnector.getTables()
-            if (tables && tables.length > 0) {
-                tableModel.clear()
-                var count = tables.length
-
-                for (var i = 0; i < count; ++i) {
-                    var table = tables[i]
-                    tableModel.append({ "name": table })
-                }
-            }
+            tableList.model = selectedConnector.getTableModel();
         }
     }
 
-    ListModel {
-        id: tableModel
-    }
-
     SilicaListView {
+        id: tableList
         anchors.fill: parent
-        model: tableModel
+        //model: tableModel
 
         PullDownMenu {
             MenuItem {

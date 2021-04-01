@@ -60,7 +60,7 @@
         <location filename="../qml/pages/FirstPage.qml" line="49"/>
         <location filename="../qml/pages/FirstPage.qml" line="134"/>
         <location filename="../qml/pages/TableInfoPage.qml" line="38"/>
-        <location filename="../qml/pages/TableListPage.qml" line="37"/>
+        <location filename="../qml/pages/TableListPage.qml" line="39"/>
         <source></source>
         <translation>Tietoja</translation>
     </message>
@@ -99,7 +99,7 @@
     <message id="label-runQuery">
         <location filename="../qml/pages/DataPage.qml" line="49"/>
         <location filename="../qml/pages/TableInfoPage.qml" line="43"/>
-        <location filename="../qml/pages/TableListPage.qml" line="42"/>
+        <location filename="../qml/pages/TableListPage.qml" line="44"/>
         <source></source>
         <translation>Suorita kysely</translation>
     </message>
@@ -110,12 +110,12 @@
     </message>
     <message id="label-action">
         <location filename="../qml/pages/TableInfoPage.qml" line="74"/>
-        <location filename="../qml/pages/TableListPage.qml" line="69"/>
+        <location filename="../qml/pages/TableListPage.qml" line="71"/>
         <source></source>
         <translation>Toiminto</translation>
     </message>
     <message id="label-tables">
-        <location filename="../qml/pages/TableListPage.qml" line="48"/>
+        <location filename="../qml/pages/TableListPage.qml" line="50"/>
         <source></source>
         <translation>Taulut</translation>
     </message>

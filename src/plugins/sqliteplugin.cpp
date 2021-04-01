@@ -60,6 +60,18 @@ QStringList SQLitePlugin::getTables()
     return m_database.tables(QSql::Tables);
 }
 
+TableModel *SQLitePlugin::getTableModel()
+{
+    TableModel *model = new TableModel();
+    QStringList tables = m_database.tables(QSql::Tables);
+    foreach (QString tableName, tables)
+    {
+        model->addTableInfo(new TableInfo(tableName));
+    }
+
+    return model;
+}
+
 QStringList SQLitePlugin::getColumnsForTable(const QString &tableName)
 {
     QStringList retList;
