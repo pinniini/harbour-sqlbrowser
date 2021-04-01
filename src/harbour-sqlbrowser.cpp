@@ -13,6 +13,8 @@
 #include "plugins/sqliteplugin.h"
 #include "translationhandler.h"
 #include "settings.h"
+#include "models/tableinfo.h"
+#include "models/tablemodel.h"
 
 int main(int argc, char *argv[])
 {
@@ -66,6 +68,8 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<ConnectionInfo>("fi.pinniini.sqlBrowser", 1, 0, "Type", "Not creatable.");
 
     qmlRegisterType<IConnector>("fi.pinniini.sqlBrowser", 1, 0, "Connector");
+    qmlRegisterType<TableInfo>("fi.pinniini.sqlBrowser", 1, 0, "TableInfo");
+    qmlRegisterType<TableModel>("fi.pinniini.sqlBrowser", 1, 0, "TableModel");
 
     QVariantList connectors;
     IConnector *sqlite = new SQLitePlugin();

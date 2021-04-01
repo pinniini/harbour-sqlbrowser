@@ -16,6 +16,7 @@ public:
     bool connectToDb(const QString &server, const int &port, const QString &database, const QString &user, const QString &password) override;
     QString getError() const override;
     QStringList getTables() override;
+    TableModel* getTableModel() override;
     QStringList getColumnsForTable(const QString &tableName) override;
     QStringList getAllDataFromTable(const QString &tableName) override;
 

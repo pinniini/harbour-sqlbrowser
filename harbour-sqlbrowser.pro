@@ -19,6 +19,8 @@ CONFIG += sailfishapp
 SOURCES += src/harbour-sqlbrowser.cpp \
     src/interfaces/connectioninfo.cpp \
     src/interfaces/iconnector.cpp \
+    src/models/tableinfo.cpp \
+    src/models/tablemodel.cpp \
     src/plugins/sqliteplugin.cpp \
     src/settings.cpp \
     src/translationhandler.cpp
@@ -55,6 +57,8 @@ TRANSLATIONS += translations/harbour-sqlbrowser-en.ts \
 HEADERS += \
     src/interfaces/connectioninfo.h \
     src/interfaces/iconnector.h \
+    src/models/tableinfo.h \
+    src/models/tablemodel.h \
     src/plugins/sqliteplugin.h \
     src/settings.h \
     src/translationhandler.h

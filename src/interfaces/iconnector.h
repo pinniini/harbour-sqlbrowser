@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 
 #include "../interfaces/connectioninfo.h"
+#include "../models/tablemodel.h"
 
 class IConnector : public QObject
 {
@@ -16,6 +17,7 @@ public:
     Q_INVOKABLE virtual bool connectToDb(const QString &server, const int &port, const QString &database, const QString &user, const QString &password);
     Q_INVOKABLE virtual QString getError() const;
     Q_INVOKABLE virtual QStringList getTables();
+    Q_INVOKABLE virtual TableModel* getTableModel();
     Q_INVOKABLE virtual QStringList getColumnsForTable(const QString &tableName);
     Q_INVOKABLE virtual QStringList getAllDataFromTable(const QString &tableName);
 
