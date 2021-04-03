@@ -6,6 +6,7 @@
 
 #include "../interfaces/connectioninfo.h"
 #include "../models/tablemodel.h"
+#include "../models/columnmodel.h"
 
 class IConnector : public QObject
 {
@@ -19,6 +20,7 @@ public:
     Q_INVOKABLE virtual QStringList getTables();
     Q_INVOKABLE virtual TableModel* getTableModel();
     Q_INVOKABLE virtual QStringList getColumnsForTable(const QString &tableName);
+    Q_INVOKABLE virtual ColumnModel* getColumnModel(const QString &tableName);
     Q_INVOKABLE virtual QStringList getAllDataFromTable(const QString &tableName);
 
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)

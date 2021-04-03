@@ -59,8 +59,8 @@
         <location filename="../qml/pages/DataPage.qml" line="44"/>
         <location filename="../qml/pages/FirstPage.qml" line="49"/>
         <location filename="../qml/pages/FirstPage.qml" line="134"/>
-        <location filename="../qml/pages/TableInfoPage.qml" line="38"/>
-        <location filename="../qml/pages/TableListPage.qml" line="39"/>
+        <location filename="../qml/pages/TableInfoPage.qml" line="40"/>
+        <location filename="../qml/pages/TableListPage.qml" line="25"/>
         <source></source>
         <translation>Tietoja</translation>
     </message>
@@ -98,24 +98,24 @@
     </message>
     <message id="label-runQuery">
         <location filename="../qml/pages/DataPage.qml" line="49"/>
-        <location filename="../qml/pages/TableInfoPage.qml" line="43"/>
-        <location filename="../qml/pages/TableListPage.qml" line="44"/>
+        <location filename="../qml/pages/TableInfoPage.qml" line="45"/>
+        <location filename="../qml/pages/TableListPage.qml" line="30"/>
         <source></source>
         <translation>Suorita kysely</translation>
     </message>
     <message id="label-showData">
-        <location filename="../qml/pages/TableInfoPage.qml" line="48"/>
+        <location filename="../qml/pages/TableInfoPage.qml" line="50"/>
         <source></source>
         <translation>Näytä data</translation>
     </message>
     <message id="label-action">
-        <location filename="../qml/pages/TableInfoPage.qml" line="74"/>
-        <location filename="../qml/pages/TableListPage.qml" line="71"/>
+        <location filename="../qml/pages/TableInfoPage.qml" line="81"/>
+        <location filename="../qml/pages/TableListPage.qml" line="57"/>
         <source></source>
         <translation>Toiminto</translation>
     </message>
     <message id="label-tables">
-        <location filename="../qml/pages/TableListPage.qml" line="50"/>
+        <location filename="../qml/pages/TableListPage.qml" line="36"/>
         <source></source>
         <translation>Taulut</translation>
     </message>
