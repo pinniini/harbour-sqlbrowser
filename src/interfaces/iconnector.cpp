@@ -57,6 +57,13 @@ QStringList IConnector::getAllDataFromTable(const QString &tableName)
     return QStringList();
 }
 
+int IConnector::getRowCount(const QString &tableName)
+{
+    Q_UNUSED(tableName)
+
+    return 0;
+}
+
 QString IConnector::name() const
 {
     return "Implement me!";

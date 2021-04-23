@@ -22,6 +22,7 @@ public:
     Q_INVOKABLE virtual QStringList getColumnsForTable(const QString &tableName);
     Q_INVOKABLE virtual ColumnModel* getColumnModel(const QString &tableName);
     Q_INVOKABLE virtual QStringList getAllDataFromTable(const QString &tableName);
+    Q_INVOKABLE virtual int getRowCount(const QString &tableName);
 
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(Type type READ type NOTIFY typeChanged)

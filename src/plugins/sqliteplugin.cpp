@@ -218,6 +218,26 @@ QStringList SQLitePlugin::getAllDataFromTable(const QString &tableName)
     return retList;
 }
 
+int SQLitePlugin::getRowCount(const QString &tableName)
+{
+    QSqlQuery query(m_database);
+    QString tmpTable = m_database.driver()->escapeIdentifier(tableName, QSqlDriver::TableName);
+    if (!query.prepare(QString("SELECT COUNT(*) FROM %1").arg(tmpTable)))
+    {
+        qDebug() << query.lastError().text();
+    }
+
+    int rowCount = 0;
+    query.exec();
+    while (query.next())
+    {
+        rowCount = query.value(0).toInt();
+        qDebug() << "Row count:" << rowCount;
+    }
+
+    return rowCount;
+}
+
 QString SQLitePlugin::name() const
 {
     return m_name;

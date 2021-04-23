@@ -16,11 +16,11 @@ QString TableInfo::name() const
     return _name;
 }
 
-void TableInfo::setName(const QString &name)
-{
-    if (_name != name)
-    {
-        _name = name;
-        emit nameChanged(_name);
-    }
-}
+//void TableInfo::setName(const QString &name)
+//{
+//    if (_name != name)
+//    {
+//        _name = name;
+//        emit nameChanged(_name);
+//    }
+//}

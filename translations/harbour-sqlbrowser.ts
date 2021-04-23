@@ -87,5 +87,25 @@
         <source></source>
         <translation type="unfinished">SQL Browser</translation>
     </message>
+    <message id="label-general">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
+    </message>
+    <message id="label-table">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
+    </message>
+    <message id="label-columns">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
+    </message>
+    <message id="label-tableInfo">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
+    </message>
+    <message id="label-rowCount">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
+    </message>
 </context>
 </TS>

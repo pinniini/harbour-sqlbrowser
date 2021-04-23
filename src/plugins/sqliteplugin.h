@@ -22,6 +22,7 @@ public:
     QStringList getColumnsForTable(const QString &tableName) override;
     ColumnModel* getColumnModel(const QString &tableName) override;
     QStringList getAllDataFromTable(const QString &tableName) override;
+    int getRowCount(const QString &tableName) override;
 
     QString name() const override;
     Type type() const override;

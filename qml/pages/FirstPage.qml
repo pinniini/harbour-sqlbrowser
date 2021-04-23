@@ -105,6 +105,7 @@ Page {
                 id: connectButton
                 text: qsTrId("label-connect")
                 anchors.horizontalCenter: parent.horizontalCenter
+                enabled: dbFile && dbFile.length > 0
                 onClicked: {
                     if (dbFile) {
                         console.log("Connect to db...")
