@@ -1,23 +1,21 @@
-#ifndef COLUMNMODEL_H
-#define COLUMNMODEL_H
+#ifndef TABLEDATAMODEL_H
+#define TABLEDATAMODEL_H
 
-#include "columninfo.h"
-
-#include <QObject>
 #include <QAbstractListModel>
+#include <QObject>
 
-class ColumnModel : public QAbstractListModel
+class TableDataModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum ColumnRoles
+    enum TableDataRoles
     {
         NameRole = Qt::UserRole + 1,
         DataTypeRole = Qt::UserRole + 2
     };
 
-    ColumnModel(QObject *parent = nullptr);
-    ~ColumnModel();
+    explicit TableDataModel(QObject *parent = nullptr);
+    ~TableDataModel();
 
     ///
     /// \brief rowCount
@@ -40,12 +38,12 @@ public:
     ///
     QHash<int, QByteArray> roleNames() const;
 
-    Q_INVOKABLE ColumnInfo* get(int index);
-    Q_INVOKABLE int colCount();
-    void addColumnInfo(ColumnInfo *info);
+//    Q_INVOKABLE ColumnInfo* get(int index);
+    Q_INVOKABLE int dataCount();
+//    void addColumnInfo(ColumnInfo *info);
 
 private:
-    QVector<ColumnInfo *> *_columns;
+//    QVector<ColumnInfo *> *_columns;
 };
 
-#endif // COLUMNMODEL_H
+#endif // TABLEDATAMODEL_H

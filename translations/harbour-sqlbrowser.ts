@@ -107,5 +107,9 @@
         <source></source>
         <translation type="unfinished">SQL Browser</translation>
     </message>
+    <message id="debug">
+        <source></source>
+        <translation type="unfinished">SQL Browser</translation>
+    </message>
 </context>
 </TS>

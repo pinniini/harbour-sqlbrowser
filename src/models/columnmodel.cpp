@@ -74,6 +74,11 @@ ColumnInfo *ColumnModel::get(int index)
     return _columns->at(index);
 }
 
+int ColumnModel::colCount()
+{
+    return _columns != nullptr ? _columns->count() : 0;
+}
+
 void ColumnModel::addColumnInfo(ColumnInfo *info)
 {
     if (info != nullptr && _columns != nullptr)

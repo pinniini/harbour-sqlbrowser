@@ -109,27 +109,27 @@
         <translation>Show data</translation>
     </message>
     <message id="label-tableInfo">
-        <location filename="../qml/pages/TableInfoPage.qml" line="49"/>
+        <location filename="../qml/pages/TableInfoPage.qml" line="50"/>
         <source></source>
         <translation>Table info</translation>
     </message>
     <message id="label-general">
-        <location filename="../qml/pages/TableInfoPage.qml" line="54"/>
+        <location filename="../qml/pages/TableInfoPage.qml" line="55"/>
         <source></source>
         <translation>General</translation>
     </message>
     <message id="label-table">
-        <location filename="../qml/pages/TableInfoPage.qml" line="58"/>
+        <location filename="../qml/pages/TableInfoPage.qml" line="59"/>
         <source></source>
         <translation>Table</translation>
     </message>
     <message id="label-rowCount">
-        <location filename="../qml/pages/TableInfoPage.qml" line="64"/>
+        <location filename="../qml/pages/TableInfoPage.qml" line="65"/>
         <source></source>
         <translation>Row count</translation>
     </message>
     <message id="label-columns">
-        <location filename="../qml/pages/TableInfoPage.qml" line="69"/>
+        <location filename="../qml/pages/TableInfoPage.qml" line="70"/>
         <source></source>
         <translation>Columns</translation>
     </message>
@@ -148,6 +148,11 @@
         <location filename="../qml/pages/SettingsPage.qml" line="74"/>
         <source></source>
         <translation>Language</translation>
+    </message>
+    <message id="debug">
+        <location filename="../qml/pages/TableDataPage.qml" line="42"/>
+        <source></source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

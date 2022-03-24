@@ -137,8 +137,6 @@ QStringList SQLitePlugin::getColumnsForTable(const QString &tableName)
 
 ColumnModel *SQLitePlugin::getColumnModel(const QString &tableName)
 {
-    QStringList retList;
-    ColumnModel *model = new ColumnModel ();
 
     if (!m_database.isOpen())
     {
@@ -152,17 +150,36 @@ ColumnModel *SQLitePlugin::getColumnModel(const QString &tableName)
         return nullptr;
     }
 
+    QStringList retList;
+    ColumnModel *model = new ColumnModel ();
+
+    QStringList primaryFields;
     QSqlIndex primary = m_database.primaryIndex(tableName);
     if (!primary.isEmpty())
     {
-        model->addColumnInfo(new ColumnInfo(primary.name(), "primary index"));
+        for (int i = 0; i < primary.count(); ++i)
+        {
+            primaryFields << primary.field(i).name();
+        }
+//        model->addColumnInfo(new ColumnInfo("Primary index", primaryFields.join(",")));
     }
 
     // Build return list.
     for(int i = 0; i < record.count(); ++i)
     {
         QSqlField field = record.field(i);
-        model->addColumnInfo(new ColumnInfo(field.name(), QVariant::typeToName(field.type())));
+        ColumnInfo *info = new ColumnInfo();
+        info->setName(field.name());
+        QString tmpType = QVariant::typeToName(field.type());
+
+        if (primaryFields.contains(info->name()))
+        {
+            tmpType += ", Primary key";
+        }
+        info->setDataType(tmpType);
+
+//        model->addColumnInfo(new ColumnInfo(field.name(), QVariant::typeToName(field.type())));
+        model->addColumnInfo(info);
     }
 
     return model;

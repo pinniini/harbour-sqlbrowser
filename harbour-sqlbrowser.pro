@@ -21,6 +21,7 @@ SOURCES += src/harbour-sqlbrowser.cpp \
     src/interfaces/iconnector.cpp \
     src/models/columninfo.cpp \
     src/models/columnmodel.cpp \
+    src/models/tabledatamodel.cpp \
     src/models/tableinfo.cpp \
     src/models/tablemodel.cpp \
     src/plugins/sqliteplugin.cpp \
@@ -33,6 +34,7 @@ DISTFILES += qml/harbour-sqlbrowser.qml \
     qml/pages/DataPage.qml \
     qml/pages/FirstPage.qml \
     qml/pages/SettingsPage.qml \
+    qml/pages/TableDataPage.qml \
     qml/pages/TableInfoPage.qml \
     qml/pages/TableListPage.qml \
     rpm/harbour-sqlbrowser.changes.in \
@@ -61,6 +63,7 @@ HEADERS += \
     src/interfaces/iconnector.h \
     src/models/columninfo.h \
     src/models/columnmodel.h \
+    src/models/tabledatamodel.h \
     src/models/tableinfo.h \
     src/models/tablemodel.h \
     src/plugins/sqliteplugin.h \
