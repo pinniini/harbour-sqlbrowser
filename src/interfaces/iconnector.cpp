@@ -57,6 +57,13 @@ QStringList IConnector::getAllDataFromTable(const QString &tableName)
     return QStringList();
 }
 
+TableDataModel *IConnector::getTableDataModel(const QString &tableName)
+{
+    Q_UNUSED(tableName)
+
+    return nullptr;
+}
+
 int IConnector::getRowCount(const QString &tableName)
 {
     Q_UNUSED(tableName)

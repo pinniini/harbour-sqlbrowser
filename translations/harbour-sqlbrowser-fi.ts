@@ -150,7 +150,7 @@
         <translation>Kieli</translation>
     </message>
     <message id="debug">
-        <location filename="../qml/pages/TableDataPage.qml" line="42"/>
+        <location filename="../qml/pages/TableDataPage.qml" line="32"/>
         <source></source>
         <translation type="unfinished"></translation>
     </message>

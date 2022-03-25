@@ -137,7 +137,6 @@ QStringList SQLitePlugin::getColumnsForTable(const QString &tableName)
 
 ColumnModel *SQLitePlugin::getColumnModel(const QString &tableName)
 {
-
     if (!m_database.isOpen())
     {
         return nullptr;
@@ -150,7 +149,6 @@ ColumnModel *SQLitePlugin::getColumnModel(const QString &tableName)
         return nullptr;
     }
 
-    QStringList retList;
     ColumnModel *model = new ColumnModel ();
 
     QStringList primaryFields;
@@ -233,6 +231,69 @@ QStringList SQLitePlugin::getAllDataFromTable(const QString &tableName)
     }
 
     return retList;
+}
+
+TableDataModel *SQLitePlugin::getTableDataModel(const QString &tableName)
+{
+    qDebug() << "Getting data from table " << tableName << "...";
+
+    if (!m_database.isOpen())
+    {
+        return nullptr;
+    }
+
+    // Get fields.
+    QSqlRecord record = m_database.record(tableName);
+    if(record.isEmpty())
+    {
+        return nullptr;
+    }
+
+    TableDataModel *model = new TableDataModel();
+
+    // Get column names.
+    auto cols = getColumnModel(tableName);
+    for (int i = 0; i < cols->colCount(); ++i)
+    {
+        auto col = cols->get(i);
+        qDebug() << col;
+
+        if (col)
+        {
+            model->addData(new TableData(col->name(), col->dataType(), true));
+        }
+    }
+
+    // Clean.
+    delete cols;
+    cols = nullptr;
+
+    QSqlQuery query(m_database);
+    QString tmpTable = m_database.driver()->escapeIdentifier(tableName, QSqlDriver::TableName);
+    if (!query.prepare(QString("SELECT * FROM %1").arg(tmpTable)))
+    {
+        qDebug() << query.lastError().text();
+    }
+
+    query.exec();
+
+    qDebug() << query.isActive();
+    qDebug() << query.isValid();
+    qDebug() << query.lastError().text();
+    qDebug() << query.executedQuery();
+    qDebug() << getError();
+
+    while (query.next())
+    {
+        QString data = "";
+        for (int i = 0; i < record.count(); ++i)
+        {
+//            data += query.value(i).toString() + " - ";
+            model->addData(new TableData(query.value(i).toString(), ""));
+        }
+    }
+
+    return model;
 }
 
 int SQLitePlugin::getRowCount(const QString &tableName)

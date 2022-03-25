@@ -17,6 +17,8 @@
 #include "models/tablemodel.h"
 #include "models/columninfo.h"
 #include "models/columnmodel.h"
+#include "models/tabledatamodel.h"
+#include "models/tabledata.h"
 
 int main(int argc, char *argv[])
 {
@@ -75,6 +77,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<TableModel>("fi.pinniini.sqlBrowser", 1, 0, "TableModel");
     qmlRegisterType<ColumnInfo>("fi.pinniini.sqlBrowser", 1, 0, "ColumnInfo");
     qmlRegisterType<ColumnModel>("fi.pinniini.sqlBrowser", 1, 0, "ColumnModel");
+    qmlRegisterType<TableData>("fi.pinniini.sqlBrowser", 1, 0, "TableData");
+    qmlRegisterType<TableDataModel>("fi.pinniini.sqlBrowser", 1, 0, "TableDataModel");
 
     QVariantList connectors;
     IConnector *sqlite = new SQLitePlugin();

@@ -1,58 +1,61 @@
 #include "tabledatamodel.h"
 
-TableDataModel::TableDataModel(QObject *parent) : QAbstractListModel(parent)
+TableDataModel::TableDataModel(QObject *parent)
+    : QAbstractListModel(parent), _data(new QVector<TableData *>())
 {
 
 }
 
 TableDataModel::~TableDataModel()
 {
-//    if (_columns != nullptr)
-//    {
-//        for (int i = 0; i < _columns->length(); ++i)
-//        {
-//            delete _columns->at(i);
-//            _columns->replace(i, nullptr);
-//        }
+    if (_data != nullptr)
+    {
+        for (int i = 0; i < _data->length(); ++i)
+        {
+            delete _data->at(i);
+            _data->replace(i, nullptr);
+        }
 
-//        _columns->clear();
-//        delete _columns;
-//        _columns = nullptr;
-//    }
+        _data->clear();
+        delete _data;
+        _data = nullptr;
+    }
 }
 
 int TableDataModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
 
-//    if (_columns != nullptr)
-//    {
-//        return _columns->length();
-//    }
-//    else
-//    {
+    if (_data != nullptr)
+    {
+        return _data->length();
+    }
+    else
+    {
         return 0;
-//    }
+    }
 }
 
 QVariant TableDataModel::data(const QModelIndex &index, int role) const
 {
-//    // Validate index.
-//    if (index.isValid() && index.row() < _columns->length())
-//    {
-//        switch (role) {
-//        case NameRole:
-//            return _columns->at(index.row())->name();
-//        case DataTypeRole:
-//            return _columns->at(index.row())->dataType();
-//        default:
-//            return QVariant();
-//        }
-//    }
-//    else // Invalid index, return empty.
-//    {
+    // Validate index.
+    if (index.isValid() && index.row() < _data->length())
+    {
+        switch (role) {
+        case NameRole:
+            return _data->at(index.row())->name();
+        case DataTypeRole:
+            return _data->at(index.row())->dataType();
+        case IsHeaderRole:
+            return _data->at(index.row())->isHeader();
+        default:
+            return QVariant();
+        }
+    }
+    else // Invalid index, return empty.
+    {
         return QVariant();
-//    }
+    }
 }
 
 QHash<int, QByteArray> TableDataModel::roleNames() const
@@ -60,29 +63,49 @@ QHash<int, QByteArray> TableDataModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[NameRole] = "name";
     roles[DataTypeRole] = "dataType";
+    roles[IsHeaderRole] = "isHeader";
     return roles;
 }
 
-//ColumnInfo *TableDataModel::get(int index)
-//{
-//    if (_columns == nullptr || index < 0 || index > _columns->length() - 1)
-//    {
-//        return nullptr;
-//    }
+TableData *TableDataModel::get(int index)
+{
+    if (_data == nullptr || index < 0 || index > _data->length() - 1)
+    {
+        return nullptr;
+    }
 
-//    return _columns->at(index);
-//}
+    return _data->at(index);
+}
 
 int TableDataModel::dataCount()
 {
-//    return _columns != nullptr ? _columns->count() : 0;
-    return 0;
+    return _data != nullptr ? _data->count() : 0;
 }
 
-//void TableDataModel::addColumnInfo(ColumnInfo *info)
-//{
-//    if (info != nullptr && _columns != nullptr)
-//    {
-//        _columns->push_back(info);
-//    }
-//}
+int TableDataModel::headerCount()
+{
+    int headers = 0;
+    if (_data != nullptr)
+    {
+        for (int i = 0; i < _data->count(); ++i)
+        {
+            auto data = _data->at(i);
+            if (!data->isHeader())
+            {
+                break;
+            }
+
+            ++headers;
+        }
+    }
+
+    return headers;
+}
+
+void TableDataModel::addData(TableData *data)
+{
+    if (data != nullptr && _data != nullptr)
+    {
+        _data->push_back(data);
+    }
+}

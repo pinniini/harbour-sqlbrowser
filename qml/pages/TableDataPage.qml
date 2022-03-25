@@ -10,24 +10,14 @@ Page {
     property string selectedTable
     property Connector selectedConnector
     property ColumnModel columnModel
+    property TableDataModel tableDataModel: null
 
     Component.onCompleted: {
         if (selectedConnector && selectedTable) {
-            var allData = selectedConnector.getAllDataFromTable(selectedTable)
-            if (allData && allData.length > 0) {
-                dataModel.clear()
-                var count = allData.length
-
-                for (var i = 0; i < count; ++i) {
-                    var data = allData[i]
-                    dataModel.append({ "name": data })
-                }
-            }
+            var dataModel = selectedConnector.getTableDataModel(selectedTable)
+            dataGrid.columns = dataModel.headerCount()
+            tableDataModel = dataModel
         }
-    }
-
-    ListModel {
-        id: dataModel
     }
 
     SilicaFlickable {
@@ -45,77 +35,19 @@ Page {
             }
         }
 
-        PageHeader {
-            id: header
-            title: "Data"
-        }
-
         Grid {
             id: dataGrid
-            columns: columnModel ? columnModel.colCount() : 1
             columnSpacing: Theme.paddingMedium
-            anchors.top: parent.top
-            anchors.topMargin: header.height
 
             Repeater {
-                model: columnModel
+                model: tableDataModel
 
                 Label {
                     text: name
+                    font.family: isHeader ? Theme.fontFamilyHeading : Theme.fontFamily
+                    font.bold: isHeader ? true : false
                 }
             }
         }
     }
-
-//    SilicaFlickable {
-//        anchors.fill: parent
-////        anchors {
-////            left: parent.left
-////            top: header.bottom
-////            right: parent.right
-////            bottom: parent.bottom
-////        }
-
-//        // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
-//        PullDownMenu {
-//            MenuItem {
-//                text: qsTrId("label-about")
-//                onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
-//            }
-
-//            MenuItem {
-//                text: qsTrId("label-runQuery")
-//                onClicked: console.log("TODO: open query page...")
-//            }
-//        }
-
-//        // Tell SilicaFlickable the height of its content.
-//        contentHeight: column.height
-//        contentWidth: column.width
-
-//        // Place our content in a Column.  The PageHeader is always placed at the top
-//        // of the page, followed by our content.
-//        Column {
-//            id: column
-
-////            width: parent.width
-//            width: children[1].width
-//            spacing: Theme.paddingLarge
-
-//            PageHeader {
-//                id: header
-//                title: ""
-//            }
-
-//            Repeater {
-//                model: dataModel
-//                Label {
-//                    text: model.name
-//                    //y: (parent.height / 2) - (height / 2)
-//                    x: Theme.paddingMedium
-//                    //width: parent.width - Theme.paddingMedium - Theme.paddingMedium
-//                }
-//            }
-//        }
-//    }
 }

@@ -5,6 +5,7 @@
 #include "../interfaces/connectioninfo.h"
 #include "../models/tablemodel.h"
 #include "../models/columnmodel.h"
+#include "../models/tabledatamodel.h"
 
 #include <QObject>
 
@@ -22,6 +23,7 @@ public:
     QStringList getColumnsForTable(const QString &tableName) override;
     ColumnModel* getColumnModel(const QString &tableName) override;
     QStringList getAllDataFromTable(const QString &tableName) override;
+    TableDataModel *getTableDataModel(const QString &tableName) override;
     int getRowCount(const QString &tableName) override;
 
     QString name() const override;

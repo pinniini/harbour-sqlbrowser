@@ -21,6 +21,7 @@ SOURCES += src/harbour-sqlbrowser.cpp \
     src/interfaces/iconnector.cpp \
     src/models/columninfo.cpp \
     src/models/columnmodel.cpp \
+    src/models/tabledata.cpp \
     src/models/tabledatamodel.cpp \
     src/models/tableinfo.cpp \
     src/models/tablemodel.cpp \
@@ -63,6 +64,7 @@ HEADERS += \
     src/interfaces/iconnector.h \
     src/models/columninfo.h \
     src/models/columnmodel.h \
+    src/models/tabledata.h \
     src/models/tabledatamodel.h \
     src/models/tableinfo.h \
     src/models/tablemodel.h \
