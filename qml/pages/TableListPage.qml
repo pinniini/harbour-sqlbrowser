@@ -57,6 +57,11 @@ Page {
                     text: qsTrId("label-action")
                     onClicked: console.log("ContextMenu item clicked...")
                 }
+
+                MenuItem {
+                    text: qsTrId("label-showData")
+                    onClicked: pageStack.push(Qt.resolvedUrl("TableDataPage.qml"), { "selectedConnector": selectedConnector, "selectedTable": model.name })
+                }
             }
         }
     }

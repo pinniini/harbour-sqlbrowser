@@ -9,7 +9,6 @@ Page {
 
     property string selectedTable
     property Connector selectedConnector
-    property ColumnModel columnModel
     property TableDataModel tableDataModel: null
 
     Component.onCompleted: {
@@ -46,6 +45,8 @@ Page {
                     text: name
                     font.family: isHeader ? Theme.fontFamilyHeading : Theme.fontFamily
                     font.bold: isHeader ? true : false
+                    font.italic: isNonValue ? true : false
+                    color: isNonValue ? Theme.secondaryColor : Theme.primaryColor
                 }
             }
         }

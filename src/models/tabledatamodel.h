@@ -14,7 +14,8 @@ public:
     {
         NameRole = Qt::UserRole + 1,
         DataTypeRole = Qt::UserRole + 2,
-        IsHeaderRole = Qt::UserRole + 3
+        IsHeaderRole = Qt::UserRole + 3,
+        IsNonValueRole = Qt::UserRole + 4
     };
 
     explicit TableDataModel(QObject *parent = nullptr);

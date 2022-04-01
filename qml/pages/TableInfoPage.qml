@@ -37,7 +37,7 @@ Page {
             MenuItem {
                 text: qsTrId("label-showData")
 //                onClicked: pageStack.push(Qt.resolvedUrl("DataPage.qml"), { "selectedConnector": selectedConnector, "selectedTable": selectedTable })
-                onClicked: pageStack.push(Qt.resolvedUrl("TableDataPage.qml"), { "selectedConnector": selectedConnector, "selectedTable": selectedTable, "columnModel": tableInfoRepeater.model })
+                onClicked: pageStack.push(Qt.resolvedUrl("TableDataPage.qml"), { "selectedConnector": selectedConnector, "selectedTable": selectedTable })
             }
         }
 

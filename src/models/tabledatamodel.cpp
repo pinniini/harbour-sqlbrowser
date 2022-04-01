@@ -48,6 +48,8 @@ QVariant TableDataModel::data(const QModelIndex &index, int role) const
             return _data->at(index.row())->dataType();
         case IsHeaderRole:
             return _data->at(index.row())->isHeader();
+        case IsNonValueRole:
+            return _data->at(index.row())->isNonValue();
         default:
             return QVariant();
         }
@@ -64,6 +66,7 @@ QHash<int, QByteArray> TableDataModel::roleNames() const
     roles[NameRole] = "name";
     roles[DataTypeRole] = "dataType";
     roles[IsHeaderRole] = "isHeader";
+    roles[IsNonValueRole] = "isNonValue";
     return roles;
 }
 

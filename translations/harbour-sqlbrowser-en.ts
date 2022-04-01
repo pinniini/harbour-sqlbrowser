@@ -105,6 +105,7 @@
     </message>
     <message id="label-showData">
         <location filename="../qml/pages/TableInfoPage.qml" line="38"/>
+        <location filename="../qml/pages/TableListPage.qml" line="62"/>
         <source></source>
         <translation>Show data</translation>
     </message>
@@ -150,7 +151,7 @@
         <translation>Language</translation>
     </message>
     <message id="debug">
-        <location filename="../qml/pages/TableDataPage.qml" line="32"/>
+        <location filename="../qml/pages/TableDataPage.qml" line="31"/>
         <source></source>
         <translation type="unfinished"></translation>
     </message>

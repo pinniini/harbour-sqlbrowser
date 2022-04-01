@@ -242,25 +242,18 @@ TableDataModel *SQLitePlugin::getTableDataModel(const QString &tableName)
         return nullptr;
     }
 
-    // Get fields.
-    QSqlRecord record = m_database.record(tableName);
-    if(record.isEmpty())
-    {
-        return nullptr;
-    }
-
     TableDataModel *model = new TableDataModel();
 
     // Get column names.
     auto cols = getColumnModel(tableName);
+    QStringList colNames;
     for (int i = 0; i < cols->colCount(); ++i)
     {
         auto col = cols->get(i);
-        qDebug() << col;
-
         if (col)
         {
-            model->addData(new TableData(col->name(), col->dataType(), true));
+            model->addData(new TableData(col->name(), col->dataType(), false, true));
+            colNames << col->name();
         }
     }
 
@@ -269,12 +262,15 @@ TableDataModel *SQLitePlugin::getTableDataModel(const QString &tableName)
     cols = nullptr;
 
     QSqlQuery query(m_database);
+    query.setForwardOnly(true);
     QString tmpTable = m_database.driver()->escapeIdentifier(tableName, QSqlDriver::TableName);
-    if (!query.prepare(QString("SELECT * FROM %1").arg(tmpTable)))
+    //if (!query.prepare(QString("SELECT * FROM %1").arg(tmpTable)))
+    if (!query.prepare(QString("SELECT %1 FROM %2").arg(colNames.join(",")).arg(tmpTable)))
     {
         qDebug() << query.lastError().text();
     }
 
+    qDebug() << query.lastQuery();
     query.exec();
 
     qDebug() << query.isActive();
@@ -286,10 +282,11 @@ TableDataModel *SQLitePlugin::getTableDataModel(const QString &tableName)
     while (query.next())
     {
         QString data = "";
-        for (int i = 0; i < record.count(); ++i)
+        int colCount = query.record().count();
+        for (int i = 0; i < colCount; ++i)
         {
-//            data += query.value(i).toString() + " - ";
-            model->addData(new TableData(query.value(i).toString(), ""));
+            bool isNull = query.isNull(i);
+            model->addData(new TableData(isNull ? "NULL" : query.value(i).toString(), "", isNull));
         }
     }
 
